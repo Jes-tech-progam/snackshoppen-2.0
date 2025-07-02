@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Snack Shop</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css">
+  <script>
+    const products = [
+      {
+        name: "Spicy Chips",
+        description: "Crispy, spicy, and addictive.",
+        price: "25 DKK",
+        stock: 5,
+        image: "https://via.placeholder.com/150",
+        label: "Popular"
+      },
+      {
+        name: "Fizzy Cola",
+        description: "Refreshing and sweet.",
+        price: "15 DKK",
+        stock: 10,
+        image: "https://via.placeholder.com/150",
+        label: "New"
+      },
+      {
+        name: "Sour Gummies",
+        description: "Tangy and chewy candies.",
+        price: "20 DKK",
+        stock: 3,
+        image: "https://via.placeholder.com/150",
+        label: "Limited Edition"
+      }
+    ];
+
+    function renderProducts() {
+      const container = document.getElementById("product-grid");
+      container.innerHTML = "";
+      products.forEach(product => {
+        container.innerHTML += `
+          <div class="bg-white p-4 rounded shadow">
+            <img src="${product.image}" alt="${product.name}" class="w-full mb-2 rounded">
+            <h3 class="font-bold text-lg">${product.name}</h3>
+            <p class="text-sm">${product.description}</p>
+            <p class="text-sm">Price: ${product.price}</p>
+            <p class="text-xs text-green-600">In stock - Only ${product.stock} left!</p>
+            <p class="text-xs text-yellow-600 font-semibold">${product.label}</p>
+            <button class="mt-2 bg-red-500 text-white px-4 py-1 rounded">Add to Cart</button>
+          </div>
+        `;
+      });
+    }
+
+    document.addEventListener("DOMContentLoaded", renderProducts);
+  </script>
+</head>
+<body class="bg-yellow-50 text-gray-800">
+  <!-- Header -->
+  <header class="bg-red-500 text-white p-4 flex justify-between items-center">
+    <h1 class="text-2xl font-bold">Snack Shop</h1>
+    <nav class="space-x-4">
+      <a href="#" class="hover:underline">Home</a>
+      <a href="#products" class="hover:underline">Products</a>
+      <a href="#about" class="hover:underline">About</a>
+      <a href="#contact" class="hover:underline">Contact</a>
+    </nav>
+    <div class="relative">
+      <button class="bg-white text-red-500 px-3 py-1 rounded-full">Cart (0)</button>
+    </div>
+  </header>
+
+  <!-- Banner -->
+  <section class="bg-yellow-300 text-center py-10">
+    <h2 class="text-3xl font-bold mb-2">Summer Deals Are Here!</h2>
+    <p class="text-lg">Free Delivery Over 199 DKK – Limited Time Offers!</p>
+    <button class="mt-4 bg-red-500 text-white px-6 py-2 rounded-full">Shop Now</button>
+  </section>
+
+  <!-- Search and Categories -->
+  <section class="p-4">
+    <input type="text" placeholder="Search for snacks..." class="w-full p-2 border rounded mb-4">
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+      <button class="bg-white p-4 shadow rounded">Chips</button>
+      <button class="bg-white p-4 shadow rounded">Candy</button>
+      <button class="bg-white p-4 shadow rounded">Soda</button>
+      <button class="bg-white p-4 shadow rounded">Energy Drinks</button>
+    </div>
+  </section>
+
+  <!-- Product Grid -->
+  <section id="products" class="p-4 grid grid-cols-1 md:grid-cols-3 gap-6"></section>
+  <div id="product-grid" class="p-4 grid grid-cols-1 md:grid-cols-3 gap-6"></div>
+
+  <!-- About Us -->
+  <section id="about" class="bg-white p-6 mt-10">
+    <h2 class="text-2xl font-bold mb-2">About Us</h2>
+    <p>We're a local team of snack lovers on a mission to bring rare, fun, and tasty treats to your doorstep.</p>
+  </section>
+
+  <!-- Contact Us -->
+  <section id="contact" class="bg-gray-100 p-6 mt-6">
+    <h2 class="text-2xl font-bold mb-2">Contact Us</h2>
+    <form class="space-y-2">
+      <input type="text" placeholder="Name" class="w-full p-2 border rounded">
+      <input type="email" placeholder="Email" class="w-full p-2 border rounded">
+      <textarea placeholder="Message" class="w-full p-2 border rounded"></textarea>
+      <button class="bg-red-500 text-white px-4 py-2 rounded">Send</button>
+    </form>
+    <p class="mt-4">MobilePay: 12345678 | Instagram: @snackshopdk</p>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-red-500 text-white text-center p-4 mt-10">
+    <p>&copy; 2025 Snack Shop. All rights reserved.</p>
+    <div class="text-sm mt-2">
+      <a href="#" class="underline">FAQ</a> | 
+      <a href="#" class="underline">Shipping & Returns</a> | 
+      <a href="#" class="underline">Terms & Privacy</a>
+    </div>
+  </footer>
+</body>
+</html>
